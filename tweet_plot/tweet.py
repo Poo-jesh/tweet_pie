@@ -6,10 +6,10 @@ import os
 def Analyzer(text):
     # your twitter api detail
 
-    cons_key = 'AvtX6aBnGuUbddbqg5Ah24OAF'
-    cons_secret = 'CK3tQhfofT9oAptM8lhqX6jLDqXMGWNhxPRnJTT7r5rnJwRSUC'
-    access_token_key = '3749075839-67G2xHJzOQzkYRIMRt57xAb32EjJxrlfDp70U6x'
-    access_token_secret = 'u4Jdbi39irUwKvwEIfqpwa0U27HtbwzEhHN3weEN99TTM'
+    cons_key = ''
+    cons_secret = ''
+    access_token_key = ''
+    access_token_secret = ''
 
     api = twitter.Api(
         consumer_key=cons_key,
