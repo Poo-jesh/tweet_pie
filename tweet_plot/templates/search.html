@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+   <div class="container content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group mx-sm-3 mb-2">
+                <legend class="border-bottom mb-4">Enter Twitter Username</legend>
+                <div class="form-group">
+                    {{ form.username(class="form-control form-control-lg") }}
+                <br>
+                <input type="submit" value="Search">
+                </div>
+            </fieldset>
+        </form>
+       <div class="container">
+<canvas id="myChart"></canvas>
+</div>
+{% if val[0]!='Null' or val[0]!='twitter_err' %}
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels:[{% for item in label %}
+                  "{{item}}",
+              {% endfor %}],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: [{% for col in colour %}
+                                 "{{col}}",
+                                {% endfor %}],
+            borderColor:  [{% for col in colour %}
+                                 "{{col}}",
+                            {% endfor %}],
+            data: [{% for v in val %}
+                          {{v}},
+                     {% endfor %}],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
+{% elif val[0]=="twitter_err" %}
+  <h1>error try another name</h1>
+{% else %}
+    <h1></h1>
+{% endif %}
+{% endblock content%}
