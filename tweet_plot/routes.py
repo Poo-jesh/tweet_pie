@@ -8,7 +8,7 @@ from tweet_plot.tweet import Analyzer
 
 @app.route('/', methods=["GET", "POST"])
 def home():
-    return render_template('search.html')
+    return render_template('home.html')
 
 
 @app.route('/search', methods=["GET", "POST"])
@@ -22,6 +22,6 @@ def search():
             return render_template('search.html', form=form, label=label, colour=colour, val=val)
         else:
             flash('Enter a username', 'danger')
-            return render_template('search.html', form=form, val='Null')
+            return render_template('search.html', form=form, val=['Null'])
     else:
-        return render_template('search.html', form=form, val='Null')
+        return render_template('search.html', form=form, val=['Null'])
